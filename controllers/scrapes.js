@@ -1,5 +1,5 @@
 /* eslint-disable class-methods-use-this */
-import db from '../db/db';
+import models from '../server/models';
 
 class ScrapesController {
   // get scrape results from ven
@@ -7,7 +7,7 @@ class ScrapesController {
     return res.status(200).send({
       success: 'true',
       message: 'Aqui recibiras el producto scrapeven',
-      todos: db
+      
     });
   }
 
@@ -16,7 +16,7 @@ class ScrapesController {
     return res.status(200).send({
       success: 'true',
       message: 'Aqui recibiras el producto scrapepen',
-      todos: db
+
     });
   }
 
@@ -25,7 +25,7 @@ class ScrapesController {
     return res.status(200).send({
       success: 'true',
       message: 'Aqui recibiras el producto scrapecol',
-      todos: db
+
     });
   }
 }
