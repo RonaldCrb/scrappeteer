@@ -2,7 +2,16 @@ import express from 'express';
 import db from './db/db';
 import bodyParser from 'body-parser';
 import router from './routes/index.js';
-
+// import Sequelize from 'sequelize';
+//
+// // Testing Sequelize DB
+//   Sequelize.authenticate()
+//     .then(data => {
+//       console.log(`PG database Connected!`)
+//     })
+//     .catch(e => {
+//       console.log(e.message)
+//     })
 // Set up the express app
 const app = express()
 
@@ -14,9 +23,10 @@ app.use(router);
 const PORT = 3000;
 
 const dialogo = function () {
+
   console.log(`==================================================================`)
-  console.log(`============== Servidor corriendo en el puerto 3000 ==============`)
-  console.log(`==============      Bienvenidos a Scrappetteer      ==============`)
+  console.log(`============== Servidor corriendo en el puerto ${PORT} ==============`)
+  console.log(`==============      Bienvenidos a Scrappetteer \u1f911     ==============`)
   console.log(`==================================================================`)
   console.log()
   console.log(`========== Endpoints para todos con title y description ==========`)

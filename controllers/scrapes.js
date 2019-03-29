@@ -1,30 +1,24 @@
 /* eslint-disable class-methods-use-this */
-import models from '../server/models';
-const scraper = require('../scrapers/scrapeven2.js')
+const util = require('util')
+const models = require('../server/models')
+import { scrapelbtcven } from '../scrapers/scrapeven.js'
+
 
 class ScrapesController {
   // get scrape results from ven
-  scrapeVen(req, res) {
-    const scrapeven = new Promise((resolve, reject) => {
-    scraper.scrapeVenBuy()
+  scrapeVen (req, res) {
+    const scrapeven =
+      scrapelbtcven()
       .then(data => {
-        resolve(data)
+        res.send(data)
+        console.log(`Finalizado Scraping`)
       })
-      .catch(err => reject('scrapeven fallo'))
-      })
-
-      Promise.all([scrapeven])
-        .then(data => res.status(200).send({
-          success: 'true',
-          message: 'scrapeven exitoso',
-          scrapeven,
-        }))
-        .catch(err => res.status(500).send(err))
-    };
-
-
+      .catch(err => {
+        console.log(err.message)
+      });
+  }
   // get scrape results from pen
-  scrapePen(req, res) {
+  scrapePen (req, res) {
     return res.status(200).send({
       success: 'true',
       message: 'Aqui recibiras el producto scrapepen',
@@ -33,14 +27,23 @@ class ScrapesController {
   }
 
   // get scrape results from col
-  scrapeCol(req, res) {
+  scrapeCol (req, res) {
     return res.status(200).send({
       success: 'true',
-      message: 'Aqui recibiras el producto scrapecol',
+      message: 'Hola millan',
 
     });
   }
 }
+//
+// Promise.all([scrapeVen()])
+//   .then(data => res.status(200).send({
+//     success: 'true',
+//     message: 'scrapeven exitoso',
+//     data,
+//   }))
+//   .catch(err => res.status(500).send(err))
+
 
 const scrapeController = new ScrapesController();
 

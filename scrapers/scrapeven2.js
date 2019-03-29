@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer')
+import puppeteer from 'puppeteer'
 const urlBuy = 'https://localbitcoins.com/instant-bitcoins/?action=buy&country_code=VE&amount=50000000&currency=VES&place_country=VE&online_provider=ALL_ONLINE&find-offers=Search'
 const urlSell = 'https://localbitcoins.com/instant-bitcoins/?action=sell&country_code=VE&amount=50000000&currency=VES&place_country=VE&online_provider=ALL_ONLINE&find-offers=Search'
 const buySelector = 'body > div:nth-child(3) > table > tbody > tr'

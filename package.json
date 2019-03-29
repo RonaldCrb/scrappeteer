@@ -1,9 +1,10 @@
 {
   "name": "scrappetteer",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Servidor para scraping basado en Express, Puppeteer, Sequelize",
   "private": true,
   "scripts": {
-    "start": "node_modules/.bin/nodemon main.js --exec babel-node --",
+    "massi": "node_modules/.bin/nodemon main.js --exec babel-node --",
     "build": "babel main.js --out-dir build",
     "scrape": "babel-watch main.js"
   },
