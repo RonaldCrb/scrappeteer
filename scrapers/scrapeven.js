@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer')
 
-export const scrapelbtcven = async () => {
+export const lbtcvenves = async () => {
   console.log('Iniciando Scraping')
   const browser = await puppeteer.launch();
   const page = await browser.newPage();

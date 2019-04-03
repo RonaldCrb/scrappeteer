@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 
-const SQL = new Sequelize('scrappetteer', 'ron', '2352', {
+export const db = new Sequelize('scrappetteer', 'scrappetter', '2352', {
   host: 'localhost',
   dialect: 'postgres',
   operatorAliases: false,

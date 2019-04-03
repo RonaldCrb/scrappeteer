@@ -1,10 +1,10 @@
 {
   "name": "scrappetteer",
   "version": "1.0.0",
-  "description": "Servidor para scraping basado en Express, Puppeteer, Sequelize",
+  "description": "Scrapper with puppetteer + express + es6",
   "private": true,
   "scripts": {
-    "massi": "node_modules/.bin/nodemon main.js --exec babel-node --",
+    "scrape": "node_modules/.bin/nodemon main.js --exec babel-node --",
     "build": "babel main.js --out-dir build",
     "scrape": "babel-watch main.js"
   },
@@ -16,9 +16,8 @@
     "moment": "^2.24.0",
     "pg": "^7.8.0",
     "pg-hstore": "^2.3.2",
-    "puppeteer": "^1.12.1",
+    "puppeteer": "^1.14.0",
     "sequelize": "^4.42.0",
-    "sequelize-cli": "^5.4.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
@@ -27,7 +26,6 @@
     "babel-watch": "^2.0.8",
     "nodemon": "^1.18.9"
   },
-  "description": "Scrapper with puppetteer + express + es6",
   "main": "main.js",
   "author": "Ron Alonzo",
   "license": "ISC"
