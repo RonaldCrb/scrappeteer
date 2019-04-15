@@ -1,5 +1,3 @@
-const util = require('util')
-const models = require('../server/models')
 import { prueba } from '../scrapers/prueba.js'
 
 class PruebasController {

@@ -1,15 +1,15 @@
-const util = require('util')
-const models = require('../server/models')
-import { custom } from '../scrapers/custom.js'
-import { banesco } from '../scrapers/banesco.js'
-import { mercantil } from '../scrapers/mercantil.js'
-import { lbtcvenves } from '../scrapers/scrapeven.js'
+const banesco = require('../scrapers/banesco.js')
+const mercantil = require('../scrapers/mercantil.js') 
+const BanescoSell = require('../db/models/banescosell')
 
 class ScrapesController {
   // GET (URL)
   banesco (req, res) {
     banesco()
       .then(data => {
+        data.forEach(post => {
+          BanescoSell.create(post)
+        })
         res.send(data)
         console.log(`Finalizado Scraping`)
       })

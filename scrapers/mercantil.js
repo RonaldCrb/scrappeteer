@@ -1,6 +1,6 @@
-import puppeteer from 'puppeteer'
+const puppeteer = require('puppeteer')
 
-export const mercantil = async () => {
+const mercantil = async () => {
   console.log('Iniciando Scraping')
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
@@ -20,6 +20,7 @@ export const mercantil = async () => {
   return posts;
 }
 
+module.exports = mercantil
 // este scraper devuelve un array de objetos simlares a este
 
 // [
