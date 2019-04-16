@@ -1,6 +1,6 @@
-import puppeteer from 'puppeteer'
+const puppeteer = require('puppeteer')
 
-export const prueba = async () => {
+const prueba = async () => {
   console.log('Iniciando Scraping')
   // config basica
   const browser = await puppeteer.launch({ headless: false })
@@ -21,31 +21,24 @@ export const prueba = async () => {
     const post = posts[i]
     const button = await post.$('td.column-button > a')
     button.click()
+    
+    const amountinput = await page.querySelector(`#btcinput`)
 
-    const scrapedpost = {
-      payment: await post.querySelector('body > div.container > div.adlisting > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div.col-md-8 > p').innerText.trim(),
-      price: await post.querySelector('#ad_price').textContent.trim(),
-      user: await post.querySelector('body > div.container > div.adlisting > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div.col-md-8 > a > span').textContent.trim(),
-      limits: await post.querySelector('body > div.container > div.adlisting > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.col-md-8 > p').textContent.trim(),
-      cuanto: await post.querySelector('#amountinput').textContent.trim()
+        // const scrapedpost = {
+        //   payment: await fullPost.querySelector(`body > div.container > div.adlisting > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div.col-md-8 > p`).textContent.trim(),
+        //   price: await fullPost.querySelector(`#ad_price`).textContent.trim(),
+        //   user: await fullPost.querySelector(`body > div.container > div.adlisting > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > div.col-md-8 > a > span`).textContent.trim(),
+        //   limits: await fullPost.querySelector(`body > div.container > div.adlisting > div:nth-child(2) > div:nth-child(1) > div:nth-child(4) > div.col-md-8 > p`).textContent.trim(),
+        //   cuanto: await fullPost.querySelector(`#amountinput`).textContent.trim()
+        // }
+        
+        console.log(await amountinput.toString())
+      page.goBack()
     }
-
-    console.log(scrapedpost)
-  }
 
   await browser.close()
   return scrapedpost
 
 }
 
-
-// este scraper devuelve un array de objetos simlares a este
-
-// [
-//  {
-//    "title":"Transfers with specific bank: Banesco 196.000",
-//    "trader":"osdumar (3000+; 99%)",
-//    "price":"13,850,000.00 VES",
-//    "limit":"196,000 - 1,000,000 VES"
-//  }
-// ]
+module.exports = prueba
