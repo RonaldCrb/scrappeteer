@@ -1,8 +1,8 @@
-import puppeteer from 'puppeteer'
+const puppeteer = require('puppeteer')
 
-export const banesco = async () => {
+const banesco = async () => {
   console.log('Iniciando Scraping')
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
   const url = 'https://localbitcoins.com/buy-bitcoins-online/ves/c/bank-transfers/?q=banesco'
   await page.goto(url);
@@ -20,6 +20,7 @@ export const banesco = async () => {
   return posts;
 }
 
+module.exports = banesco
 
 // este scraper devuelve un array de objetos simlares a este
 

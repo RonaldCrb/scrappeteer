@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 
 const sequelize = require('../../db/sequelize')
 
-const BanescoSell = sequelize.define('banescosell', {
+const MercantilSell = sequelize.define('mercantilsell', {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
@@ -23,4 +23,4 @@ const BanescoSell = sequelize.define('banescosell', {
   }
 })
 
-module.exports = BanescoSell
+module.exports = MercantilSell
